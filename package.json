@@ -17,6 +17,7 @@
     "vue3-toastify": "^0.2.8"
   },
   "devDependencies": {
+    "@types/node": "^22.14.1",
     "vite-plugin-vuetify": "^2.1.1",
     "vuetify": "^3.8.1"
   }
