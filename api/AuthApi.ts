@@ -1,15 +1,20 @@
 export default {
   registration(user: any): Promise<any> {
-    return useApiFetch('/auth/registration', { method: 'POST', body: user })
+    const { $apiFetch } = useNuxtApp()
+
+    return $apiFetch('/auth/registration', { method: 'POST', body: user })
   },
   login(email: string, password: string): Promise<any> {
-    return useApiFetch('/auth/login', { method: 'POST', body: { email, password } })
+    const { $apiFetch } = useNuxtApp()
+    return $apiFetch('/auth/login', { method: 'POST', body: { email, password } })
   },
   refresh(): Promise<any> {
     return useApiFetch('/auth/refresh', { method: 'GET' })
   },
   logout(): Promise<any> {
-    return useApiFetch('/auth/logout', { method: 'POST' })
+    const { $apiFetch } = useNuxtApp()
+
+    return $apiFetch('/auth/logout', { method: 'POST' })
   },
   updateUser(user: any, userId: string): Promise<any> {
     return useApiFetch('/auth/update', { method: 'POST', body: { user, userId } })

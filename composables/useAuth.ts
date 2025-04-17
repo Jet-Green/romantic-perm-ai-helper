@@ -15,9 +15,11 @@ export const useAuth = () => {
       const { $api } = useNuxtApp()
       const response = await $api.auth.registration(data)
 
-      if (response.status?.value !== 'success') return false
+      console.log(response);
 
-      user.value = response.data.value?.user || null
+      if (!response?.user) return false
+
+      user.value = response.user
       return true
     } catch (error) {
       console.error('Registration error:', error)
@@ -30,7 +32,7 @@ export const useAuth = () => {
       const { $api } = useNuxtApp()
       const response = await $api.auth.login(email, password)
 
-      if (response.status.value == "success") {
+      if (response.user) {
         user.value = response.user
         return true
       }
