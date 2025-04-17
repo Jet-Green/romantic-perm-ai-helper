@@ -1,7 +1,11 @@
 import FlowerApi from "~/api/FlowerApi";
+import AuthApi from "~/api/AuthApi";
 
 const apiService = {
   ...FlowerApi,
+  auth: {
+    ...AuthApi,
+  }
 };
 
 export default defineNuxtPlugin(() => {
